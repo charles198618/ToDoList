@@ -1,6 +1,6 @@
-package com.genspark.ToDoList.Controller;
+package com.genspark.ToDoList.service;
 
-import com.genspark.ToDoList.Controller.ToDo;
+import com.genspark.ToDoList.entity.ToDo;
 
 import java.util.List;
 

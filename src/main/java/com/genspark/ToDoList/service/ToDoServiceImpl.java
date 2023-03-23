@@ -1,8 +1,7 @@
-package com.genspark.ToDoList.Controller;
+package com.genspark.ToDoList.service;
 
-import com.genspark.ToDoList.Controller.ToDoDao;
-import com.genspark.ToDoList.Controller.ToDo;
-import com.genspark.ToDoList.Controller.ToDoService;
+import com.genspark.ToDoList.entity.ToDo;
+import com.genspark.ToDoList.dao.ToDoDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.genspark.ToDoList.Controller;
+package com.genspark.ToDoList.entity;
 
 import jakarta.persistence.*;
 
