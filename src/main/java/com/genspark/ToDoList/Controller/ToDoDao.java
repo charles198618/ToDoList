@@ -1,6 +1,5 @@
-package com.genspark.ToDoList.Dao;
+package com.genspark.ToDoList.Controller;
 
-import com.genspark.ToDoList.Entity.ToDo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

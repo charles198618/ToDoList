@@ -1,7 +1,5 @@
 package com.genspark.ToDoList.Controller;
 
-import com.genspark.ToDoList.Entity.ToDo;
-import com.genspark.ToDoList.Service.ToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +13,7 @@ public class MyController {
 
     @GetMapping("/")
     public String home() {
-        return "<HTML><H1>Welcome to our To Do List Application</H1></HTML>";
+        return "<HTML><H1>Welcome to our To Do List App</H1></HTML>";
     }
 
         @GetMapping("/tasks")

@@ -1,32 +1,33 @@
-package com.genspark.ToDoList.Service;
+package com.genspark.ToDoList.Controller;
 
-import com.genspark.ToDoList.Dao.ToDoDao;
-import com.genspark.ToDoList.Entity.ToDo;
+import com.genspark.ToDoList.Controller.ToDoDao;
+import com.genspark.ToDoList.Controller.ToDo;
+import com.genspark.ToDoList.Controller.ToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class ToDoServiceImpl implements ToDoService {
 
-        @Autowired
+    @Autowired
     private ToDoDao todoDao;
+
     @Override
     public List<ToDo> getAllToDo() {
 
         return this.todoDao.findAll();
     }
+
     @Override
     public ToDo getToDoById(int taskID) {
         Optional<ToDo> c = this.todoDao.findById(taskID);
         ToDo todo = null;
-        if(c.isPresent()) {
+        if (c.isPresent()) {
             todo = c.get();
-        }
-        else {
+        } else {
             throw new RuntimeException(" task is not found for id :: " + taskID);
         }
         return todo;
@@ -34,8 +35,9 @@ public class ToDoServiceImpl implements ToDoService {
 
     @Override
     public ToDo addToDo(ToDo todo) {
-         return this.todoDao.save(todo);
+        return this.todoDao.save(todo);
     }
+
 
    @Override
     public ToDo updateToDo(ToDo todo) {

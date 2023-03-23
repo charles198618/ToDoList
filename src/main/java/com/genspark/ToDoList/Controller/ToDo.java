@@ -1,16 +1,16 @@
-package com.genspark.ToDoList.Entity;
+package com.genspark.ToDoList.Controller;
 
 import jakarta.persistence.*;
 
 @Entity
-//@Table(name = "todo_table")
+
 public class ToDo {
 
     @Id
-//    @Column(name = "t_id")
+
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int userid; //primary key
-    private String username;
+    private String emailId;
     private String password;
     private String firstname;
     private String lastname;
@@ -19,8 +19,8 @@ public class ToDo {
     public ToDo() {
     }
 
-    public ToDo( String username, String password, String firstname, String lastname, String taskdescription) {
-        this.username = username;
+    public ToDo( String emailId, String password, String firstname, String lastname, String taskdescription) {
+        this.emailId = emailId;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -35,12 +35,12 @@ public class ToDo {
         this.userid = userid;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     public String getPassword() {
