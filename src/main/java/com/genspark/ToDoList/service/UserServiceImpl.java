@@ -48,10 +48,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean login(LoginUser user) {
-        System.out.println(user.getUsername());
-        System.out.println(user.getPassword());
-        System.out.println(this.findByUsername(user.getUsername()).getPassword());
-
         return this.findByUsername(user.getUsername()).getPassword().equals(user.getPassword());
     }
 }
