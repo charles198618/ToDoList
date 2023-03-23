@@ -1,9 +1,10 @@
 package com.genspark.ToDoList.Controller;
 
 import com.genspark.ToDoList.entity.LoginUser;
-import com.genspark.ToDoList.entity.ToDo;
+import com.genspark.ToDoList.entity.Task;
 import com.genspark.ToDoList.entity.User;
 import com.genspark.ToDoList.service.UserService;
+import com.genspark.ToDoList.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,9 @@ public class ToDoController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private TaskService taskService;
 
     @PutMapping("/register")
     public void register(@RequestBody User user) {
@@ -40,38 +44,29 @@ public class ToDoController {
         this.userService.deleteUser(user);
     }
 
-//    @Autowired
-//    private com.genspark.ToDoList.service.ToDoService ToDoService;
-//
-//    @GetMapping("/")
-//    public String home() {
-//        return "<HTML><H1>Welcome to our To Do List App</H1></HTML>";
-//    }
-//
-//        @GetMapping("/tasks")
-//    public List<ToDo> getTasks(){
-//        return this.ToDoService.getAllToDo();
-//    }
-//
-//    @GetMapping("/tasks/{taskID}")
-//    private ToDo getToDo(@PathVariable String taskID) {
-//        return this.ToDoService.getToDoById(Integer.parseInt(taskID));
-//    }
-//
-//    @PostMapping("/tasks")
-//    public ToDo addToDo(@RequestBody ToDo task) {
-//        return this.ToDoService.addToDo(task);
-//    }
-//
-//    @PutMapping("/tasks")
-//    public ToDo updateToDo(@RequestBody ToDo task) {
-//    return this.ToDoService.updateToDo(task);
-//    }
-//
-//    @DeleteMapping("/tasks/{taskID}")
-//    private String deleteToDo(@PathVariable String taskID) {
-//        return this.ToDoService.deleteToDoById(Integer.parseInt(taskID));
-//    }
+    @GetMapping("/{userId}/tasks")
+    public List<Task> getTasks(@PathVariable int userId) {
+        return this.taskService.findAll(userId);
+    }
 
+    @GetMapping("/{userId}/tasks/{taskId}")
+    public Task getTask(@PathVariable int userId, @PathVariable int taskId) {
+        return this.taskService.findByTaskid(taskId);
+    }
+
+    @PostMapping("/{userId}/tasks")
+    public void addTask(@PathVariable int userId, @RequestBody Task task) {
+        this.taskService.saveTask(userId, task);
+    }
+
+    @PutMapping("/{userId}/tasks")
+    public void updateTask(@PathVariable int userId, @RequestBody Task task) {
+        this.taskService.updateTask(userId, task);
+    }
+
+    @DeleteMapping("/{userId}/tasks/{taskId}")
+    public void deleteTask(@PathVariable int userId, @PathVariable int taskId) {
+        this.taskService.deleteTask(taskId);
+    }
 
 }
