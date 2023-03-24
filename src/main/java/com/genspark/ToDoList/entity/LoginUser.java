@@ -5,6 +5,8 @@ public class LoginUser {
     private String password;
 
     public LoginUser() {
+        username = "";
+        password = "";
     }
 
     public LoginUser(String username, String password) {

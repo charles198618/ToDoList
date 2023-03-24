@@ -19,6 +19,12 @@ public class Task {
     private int userid;
 
     public Task() {
+        id = 0;
+        title = "";
+        description = "";
+        status = "";
+        dueDate = "";
+        userid = 0;
     }
 
     public Task(int id, String title, String description, String status, String dueDate, int userid) {
