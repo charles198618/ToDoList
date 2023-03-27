@@ -20,8 +20,9 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public void saveTask(int userid, Task task) {
+    public Task saveTask(int userid, Task task) {
         this.taskDao.save(task);
+        return task;
     }
 
     @Override

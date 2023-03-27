@@ -39,9 +39,9 @@ public class ToDoController {
         this.userService.updateUser(user);
     }
 
-    @DeleteMapping("/api/profile/delete")
-    public void deleteProfile(@RequestBody User user) {
-        this.userService.deleteUser(user);
+    @DeleteMapping("/api/profile/{id}")
+    public void deleteProfile(@PathVariable int id) {
+        this.userService.deleteUser(id);
     }
 
     @GetMapping("/api/{userId}/tasks")
